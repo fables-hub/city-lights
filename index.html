@@ -1,12 +1,22 @@
 <style>
-  /*IF YOU ARE READING THIS: This code was made by Fable; please don't steal it and/or claim it as your own. That's not cool. Please leave all coding credit intact.*/
+	:root {
+  --bg: #ffffff;
+  --panel: #fafafa;
+  --border: #eeeeee;
+  --text: #e6e2dd;
+  --muted: #b2aead;
+  --accent: #aaaaaa; /* sapphire-purple */
+  --danger: #6b2f3a; /* muted crimson */
+
+  --main-f: 'Plush-Trial', sans-serif;
+  --header-f: 'Lavire Personal Use', sans-serif;
+}
 
 body {
-  background: #fafafa;
-  color: #000;
-  font-size: 11px;
-  font-family: "Rubik", sans-serif;
-  word-wrap: break-word;
+  background: var(--bg);
+  font-family: var(--main-f);
+  color: var(--text);
+  font-size: 14px;
 }
 
 ::-webkit-scrollbar {
@@ -18,542 +28,283 @@ body {
   background: transparent;
 }
 
+/*------------------------------
+LAYOUT ELEMENTS
+------------------------------*/
 .abs {
   position: absolute;
 }
 
-/*---LAYOUT---*/
-
-#container {
-  inset: 0;
+#profile {
+  width: 900px;
   margin: auto;
-  width: 800px;
-  height: 600px;
-  border: 1px solid #bbb;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 2rem;
 }
 
-/*NAVIGATION BOX*/
+/* ===== Header ===== */
 
-#navi {
-  bottom: 0px;
-  width: 350px;
-  height: 400px;
-  overflow-x: hidden;
-  overflow-y: auto;
+.profile-header {
+  grid-column: 1 / -1;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  margin-bottom: -20px;
 }
 
-.sideimg {
-  top: 100px;
-  left: 0px;
-  height: 200px;
-  width: 350px;
-  background-image: url("https://live.staticflickr.com/8753/16934516191_c398655411_b.jpg");
-  background-size: cover;
-  background-position: center center;
-  border-bottom: 1px solid #bbb;
+.profile-header h2 {
+  font-family: var(--header-f);
+  font-weight: 200;
+  font-size: 80px;
+  margin: 0;
 }
 
-/*---TITLE---*/
-
-.title {
-  position: relative;
-  top: 0px;
-  left: 0px;
-  width: 350px;
-  height: 50px;
-  line-height: 50px;
-  font-size: 35px;
-  margin-bottom: 10px;
-  font-family: "Boycott", sans-serif;
-  text-align: left;
+.profile-header .tag {
+  color: var(--ink-soft);
+  letter-spacing: 2px;
+  font-size: 90%;
+  font-style: italic;
 }
 
-hr {
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: 2px solid #000;
-}
+/* ===== Info Sections ===== */
 
-/*--BOXES--*/
-
-#main {
-  top: 0px;
-  right: 0px;
-  width: 450px;
-  height: 600px;
-  border-left: 1px solid #bbb;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-#text1,
-#text2 {
-  position: relative;
+section {
+  margin-bottom: 15px;
+  border-radius: 10px;
   padding: 10px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
 }
 
-#text1 {
-  width: 95%;
+section:last-child {
+  margin-bottom: 0;
 }
 
-#text2 {
-  width: 430px;
+.content {
+  display: flex;
+  flex-direction: column;
 }
 
-.pspace {
-  height: 0.5px;
-  width: 100%;
-  background: #bbb;
+/* ===== Sidebar ===== */
+
+.intro {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
 }
 
-/*---TEXT---*/
-
-h2 {
+.portrait-frame {
   position: relative;
-  top: -20px;
-  width: 100%;
-  font-size: 25px;
-  margin-bottom: -10px;
-  font-family: "Boycott", sans-serif;
-  text-align: left;
-  font-weight: normal;
+  width: 230px;
+  height: 280px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--accent);
+  padding: 6px;
 }
 
-h3 {
-  position: relative;
-  top: -10px;
-  width: 100%;
-  font-size: 20px;
-  margin-bottom: -5px;
-  letter-spacing: 2px;
+.portrait-frame img {
+  width: 230px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
 }
 
-b,
-strong {
-  text-transform: uppercase;
-}
-
-sup {
-  font-size: 80%;
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-
-a {
-  color: red;
-  transition: all 0.3s linear;
-  text-decoration: none;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-a:hover {
-  color: #000;
-}
-
-p {
-  text-indent: 15px;
-}
-
-li {
-  list-style-type: "✧ ";
-  padding-left: 5px;
+.navlinks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   margin-bottom: 15px;
 }
 
-/*CLICKER BOX*/
-
-.lightbox {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.95);
-  z-index: 999;
-  opacity: 0;
-  pointer-events: none;
-  cursor: help;
-  color: black;
+.navlinks a {
+  font-size: 10px;
+  letter-spacing: 2px;
 }
 
-.lightbox:target {
-  outline: none;
-  top: 0;
-  opacity: 1;
-  pointer-events: auto;
-  transition: all 1.2s ease;
+:target {
+  scroll-margin-top: 20px;
 }
 
-#info {
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  border-radius: 2px;
-  background: #fafafa;
-  padding: 10px;
-  width: 500px;
-  height: 500px;
-  border: 1px solid #bbb;
-  text-align: justify;
-  font-weight: normal;
-  text-transform: none;
-  color: #000;
-  font-size: 12px;
-  overflow-x: hidden;
-  overflow-y: auto;
+h2:target {
+  color: red;
 }
 
-a#info:hover {
-  color: #c9bb9d;
+.pspace {
+  height: 1px;
+  margin: 20px 0;
+  background: linear-gradient(to right, transparent, #bbb, transparent);
 }
+
 
 /*------------------------------
-LOCATION ELEMENTS
+FONT ELEMENTS
 ------------------------------*/
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 135px); /* Fixed 3 columns */
-  justify-content: center; /* Centers the whole grid horizontally */
-  align-items: center; /* Centers cards vertically within any extra space */
-  gap: 10px;
+
+b,
+i {
+  color: var(--muted);
 }
 
-.card {
-  position: relative;
-  width: 135px;
-  height: 135px;
-  background-image: var(--img);
-  background-size: cover; /* Ensures image fully fills the box */
-  background-position: center; /* Centers the image in the box */
-  background-repeat: no-repeat; /* Prevents tile repeating */
-  filter: grayscale(40%);
-  overflow: hidden;
-  cursor: pointer;
-  justify-content: center; /* Centers the whole grid horizontally */
-  align-items: center; /* Centers cards vertically within any extra space */
+h2 {
+  font-family: var(--header-f);
+  font-weight: 200;
+  font-size: 190%;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  color: var(--muted);
 }
 
-.card .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.8);
-  color: #000;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 8px;
-  box-sizing: border-box;
-  opacity: 0;
-  transition: opacity 0.2s ease-in-out;
+a {
+  text-decoration: none;
+  color: var(--link);
 }
 
-.card:hover .overlay {
-  opacity: 1;
+a:hover {
+  color: var(--accent);
 }
 
-.card h3 {
-  font-size: 12px;
+li {
+  margin-left: 15px;
+  margin-bottom: 10px;
 }
 
-/*---CREDIT---*/
-
-.code {
-  position: absolute;
-  bottom: 1%;
-  right: 1%;
-}
-
-a.code {
-  background-image: url("https://i.imgur.com/eF3ZuT7.png");
-  background-size: cover;
-  width: 20px;
-  height: 20px;
-  opacity: 0.7;
-}
-
-a.code:hover {
-  filter: brightness(80%);
+li:last-child {
+  margin-bottom: 0px;
 }
 
 </style>
 
 <body>
-  <!---FONTS--->
-<link href="https://fonts.cdnfonts.com/css/rubik-2" rel="stylesheet" />
 
-<link href="https://fonts.cdnfonts.com/css/boycott" rel="stylesheet" />
+	<link
+ href="https://fonts.cdnfonts.com/css/lavire-personal-use"
+ rel="stylesheet"
+/>
 
-<link href="https://fonts.cdnfonts.com/css/dinpro-bold" rel="stylesheet" />
+<link href="https://fonts.cdnfonts.com/css/plush-trial" rel="stylesheet">
 
-<div id="container" class="abs">
- <div class="sideimg"></div>
+<div id="profile">
+ <header class="profile-header">
+ <h2>Title</h2>
+ <div class="tag">Subtitle</div>
+ </header>
 
- <!---LEFT SIDE--->
- <div id="navi" class="abs">
- <div id="text1">
- <h2>City Lights</h2>
- <b>Welcome to Montrose:</b> A city built by the players whose
- characters inhabit it. This is a sandbox group for players to explore
- their favorite characters and interact with other players to develop
- complex relationships and dynamic plotlines. Use your creative freedom to
- flesh out your favorite heroes and villains, or use the basic universe
- provided by the mod to help grow one of your favorites. Check out our <a target="_blank" href="https://docs.google.com/spreadsheets/d/1kz4e_NObW09p2WudmTXY0svcI1orjRA44GWVCTi_HoM/edit?usp=sharing" target="_blank">masterlist</a> page for more information on jobs, residents, and rumors!
+ <aside class="stats">
+ <div class="portrait-frame">
+ <img
+ src="https://i.pinimg.com/1200x/64/2e/b0/642eb0692a1d657c055ab82449c2cbe4.jpg"
+ alt="Character portrait"
+ />
  </div>
+<div 
+ <div class="essence">
+<br>
+<h2>City Lights</h2>
+
+ <b>Bold</b> <i>Italic</i> <a href="url">link</a>
+
+ <br />
+
+ <p>
+ Here is a paragraph! Lorem ipsum dolor sit amet, consectetur adipiscing
+ elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+ ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+ reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+ pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+ qui officia deserunt mollit anim id est laborum.
+ </p>
+
  <div class="pspace"></div>
- <div id="text1">
+ <h2>Navigation</h2>
+<div class="navlinks">
+  <a href="#events">Events</a>
+  <a href="#rules">Rules</a>
+  <a href="#locations">Locations</a>
+ <div class="pspace"></div>
+ 
  <h2>News</h2>
- <!---<li><img src="https://i.imgur.com/Ejahc9d.gif" style="width:25px;height:8px;"> NEW ICON --->
- <div class="stat">
- <x>
- <sup><span style="color: red">New</span></sup> <b>04.23.25</b> - Group page recoded & updated.
-<br><br>
-<b>12.26.24</b> - 🎉 Room's 1 year anniversary!🎉
-<br><br>
-<b>10.21.24</b> - Group page recorded & updated.
-<br><br>
-<b>08.09.24</b> - Group page recoded, rules updated.
-<br><br>
-<b>12.26.23</b> - Room created.
- </div>
- </div>
+Here will be the side sections, weeeee
+</div>
+
  <div class="pspace"></div>
- <div id="text1">
- <h2>Events</h2>
- <i>Coming soon.</i>
- </div>
- </div>
 
- <!---END LEFT--->
+<h2>Current Rumors</h2>
+Boop.
 
- <!---RIGHT SIDE--->
- <div id="main" class="abs">
- <div id="text2" class="abs">
- <h2>The Rules</h2>
- 
-Please read the group rules by clicking <a href="#infobox">here.</a> Failure to read them is <b>not</b> an excuse for breaking them.
- <a href="#_1" class="lightbox" id="infobox">
-
- <div id="info">
- <h2>The Rules</h2>
- <li>
- <b>Be kind.</b> We have no tolerance for anyone being an unpleasant
- experience in our room. If you can't show a modicum of respect, and
- you're not here to be a positive contribution, we have no place for you.
- </li>
- <li>
- <b>Don't annoy the mod.</b> The mod's role is to maintain the page,
- enforce the rules, and bounce problem players. Don't bother the mod with
- personal player conflict or backseat moderating.
- </li>
- <li>
- <b>Modern supernatural setting:</b> All manner of character are allowed,
- so long as they can pass for human.
- </li>
- <li>
- <b>Live-action faces.</b> No artistic renderings, anime, or cartoon
- depictions. Duplicates and faceclaim hoarding are discouraged.
- </li>
- <li>
- <b>Limit canons.</b> This is not a room to cater to canon
- characters/storylines, but we <i>will</i> accept them within reason, so
- long as they fit the setting and aren't ignoring the spirit of the room.
- </li>
- <li>
- <b>Hard limits.</b> We don't care if you want to smut in the room, on
- the following conditions:
- <ol>
- <li>All characters and faceclaims are over the age of 18.</li>
- <li>
- Extremely graphic kinks or violence need to be taken to DMs.
- Absolutely no gore, vore, bathroom play, or bestiality. These will
- result in an immediate ban.
- </li>
- <li>
- You aren't monopolizing the room while others are trying to
- interact. If you're pushing out other peoples' posts, you need to
- take it to DMs.
- </li>
- </ol>
- </li>
- <li>
- <b>Participation:</b> For those wanting to participate, it's best to ask
- to join a scene unless it's been specified to be open. For those in the
- scene, be open to letting other people in. If you want to join a scene,
- make it clear you're joining; putting your character in the same scene
- but not interacting because you want the other person to make the first
- move may not give the results you want. Be proactive, and be friendly!
- </li>
-
- </div></a>
-		</div>
  <div class="pspace"></div>
-<div id="text2">
- 
- <h2>Locations</h2>
 
-<h3>Businesses</h3>
+ <h2>Roster</h2>
 
-<!-- LOCATION -->
-<div class="grid">
- <div class="card" style="--img:url(https://64.media.tumblr.com/9432dff9f5ca4ce22da69a9a5087ce3a/039c9e5a2b2d67a2-c4/s500x750/4fd30f92b9a86be006b1c40b1b130a1ddfccdb91.jpg)">
- <div class="overlay">
- <h4>Bubble & Brew Co.</h4>
- A combination boba/coffee shop in downtown Montrose.
- </div>
- </div>
+ Link here.
 
+ </aside>
 
+ <div class="content">
+<section>
+<h2 id="rules">The Rules</h2>
 
-<!-- LOCATION -->
- <div class="card" style="--img:url(https://i.pinimg.com/1200x/7f/03/d5/7f03d5e16acf688e30358b06239e3493.jpg)">
- <div class="overlay">
- <h4>Silver Spoon Diner</h4>
-An old Montrose establishment, this American-style 24-hour diner is dearly beloved.
- </div>
- </div>
+ <b>Bold</b> <i>Italic</i> <a href="url">link</a>
 
- <!-- LOCATION -->
- <div class="card" style="--img:url(https://i.pinimg.com/1200x/ed/e8/4b/ede84bde439283420a9208539bf6790c.jpg)">
- <div class="overlay">
- <h4>The Inferno</h4>
- Promoting 9 circles of indulgence, The Inferno is the hottest nightclub in the city.
- </div>
- </div>
+ <br />
 
- <!-- LOCATION -->
- <div class="card" style="--img:url(https://64.media.tumblr.com/0a100e45047ee922ee25557102851fe2/0b3a470432156f71-c8/s540x810/fd2c296be7a3275d2f29e1b8a423d504ae7e7355.pnj)">
- <div class="overlay">
- <h4>Redwood Plaza</h4>
- A shopping district in the center of Montrose, it offers an array of stores and cuisine.
- </div>
- </div>
+ <p>
+ Here is a paragraph! Lorem ipsum dolor sit amet, consectetur adipiscing
+ elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+ ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+ reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+ pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+ qui officia deserunt mollit anim id est laborum.
+ </p>
+ </section>
 
+ <section>
+<h2 id="locations">Locations</h2>
 
+ <b>Bold</b> <i>Italic</i> <a href="url">link</a>
 
- <!-- LOCATION -->
- <div class="card" style="--img:url(https://i.pinimg.com/1200x/80/06/26/8006261d15e82c160d9341c92aaf3c4a.jpg)">
- <div class="overlay">
- <h4>Pixels & Pints</h4>
-Any Montrose gamer worth their salt has a story to tell about this bar arcade.
- </div>
- </div>
+ <br />
 
- <!-- LOCATION -->
- <div class="card" style="--img:url(https://i.pinimg.com/1200x/e2/9c/a9/e29ca9377a57c5f96590b8b15b8ca0c8.jpg)">
- <div class="overlay">
- <h4>Reverie Resort & Spa</h4>
- <p>A luxurious hotel and spa for those who have some extra cash to spend.</p>
- </div>
- </div>
+ <p>
+ Here is a paragraph! Lorem ipsum dolor sit amet, consectetur adipiscing
+ elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+ ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+ reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+ pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+ qui officia deserunt mollit anim id est laborum.
+ </p>
+ </section>
 
- <div class="card" style="--img:url(https://i.pinimg.com/1200x/58/b0/87/58b08719adc0c47eb6186a0ec1513b96.jpg)">
- <div class="overlay">
- <h4>Sunset Motel</h4>
-A by-the-hour motel on the outskirts of town. Use it how you will...
- </div>
- </div>
+  <section>
+<h2 id="events">Events</h2>
 
- <div class="card" style="--img:url(https://i.pinimg.com/1200x/1b/cd/04/1bcd044815a87a8f6157a68a486479c0.jpg)">
- <div class="overlay">
- <h4>Gold Star Theater</h4>
- A recently revamped movie theater, they show both classics and new films alike.
- </div>
- </div>
+ <b>Bold</b> <i>Italic</i> <a href="url">link</a>
 
- <div class="card" style="--img:url(https://i.pinimg.com/736x/5a/bb/2b/5abb2b24f1d107240c61b75d650b3965.jpg)">
- <div class="overlay">
- <h4>Disco Fever Skate Rink</h4>
- Another classic Montrose staple, this skating rink still gets packed on the weekends.
- </div>
- </div>
+ <br />
 
-</div>
+ <p>
+ Here is a paragraph! Lorem ipsum dolor sit amet, consectetur adipiscing
+ elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+ ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+ reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+ pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+ qui officia deserunt mollit anim id est laborum.
+ </p>
+ </section>
 
-<h3> Community Spots</h3>
-<div class="grid">
-
- <!-- LOCATION -->
- <div class="card" style="--img:url(https://i.pinimg.com/736x/04/5d/4e/045d4e184ca528935d996921bb6200c8.jpg)">
- <div class="overlay">
- <h4>Meadowlark Park</h4>
-A park that includes walking paths, a playground, and a skate park area.
- </div>
- </div>
-
- <!-- LOCATION -->
- <div class="card" style="--img:url(https://64.media.tumblr.com/d0210d6851ac2059d90042615f2ca132/0b3a470432156f71-8d/s540x810/c13c475d2fef6570510b449d6912a568b447a5b4.pnj)">
- <div class="overlay">
- <h4>Montrose Memorial</h4>
- One of the leading hospitals in the nation, it's the place to go
- for any medical needs.
- </div>
- </div>
-
- <div class="card" style="--img:url(https://i.pinimg.com/736x/48/41/01/484101f4f73dd3e352a5510077f7169e.jpg)">
- <div class="overlay">
- <h4>Montrose Public Library</h4>
- After the old library inexplicably burned down, it was replaced with a sleek, modern version.
- </div>
- </div>
-
- <div class="card" style="--img:url(https://i.pinimg.com/1200x/d0/bb/08/d0bb081a96aadd671e78596e2ab27a31.jpg)">
- <div class="overlay">
- <h4>The Warehouse</h4>
-Once used for factory work, The Warehouse is now used as an event center.
- </div>
- </div>
-
- <div class="card" style="--img:url(https://i.pinimg.com/736x/42/de/65/42de651ee3c2aada341bd53d1dde5153.jpg)">
- <div class="overlay">
- <h4>Harborwalk</h4>
- Harborwalk is a public boardwalk bordering the ocean, complete with food, shops, rides, and games.
- </div>
- </div>
-
- <div class="card" style="--img:url(https://i.pinimg.com/1200x/f8/23/12/f82312263a23f9d590de19d98efb4977.jpg)">
- <div class="overlay">
- <h4>Montrose Rec Center</h4>
-A recreation center including a gym, pool, entertainment area, and sports courts.
- </div>
- </div>
-
-
-</div>
-<h3>Residentials</h3>
-<div class="grid">
-<!-- LOCATION -->
- <div class="card" style="--img:url(https://i.pinimg.com/1200x/8c/65/bd/8c65bdfe69b0cb469df8fcecd116dbb3.jpg)">
- <div class="overlay">
- <h4>Northstar Apartments</h4>
- Five floors with four apartments per floor. ...The electricity works, mostly.
- </div>
- </div>
-
- <!-- LOCATION -->
- <div class="card" style="--img:url(https://i.pinimg.com/736x/8b/44/f9/8b44f90ea18afb3c9a01b4797d8caf6e.jpg)">
- <div class="overlay">
- <h4>Glenndale Street</h4>
- One of the older, lived-in neighborhoods, it's a mix of rentals and home-owners.
- </div>
- </div>
-
- <!-- LOCATION -->
- <div class="card" style="--img:url(https://i.pinimg.com/1200x/c2/ec/e0/c2ece050f8ce3f45cc70c69f11cfa46e.jpg)">
- <div class="overlay">
- <h4>The Astoria Residences</h4>
-A luxury condominium complex within a gated community; includes a pool and gym. 
- </div>
- </div>
-</div>
- 
  </div>
 </div>
 
+	
 </body>
