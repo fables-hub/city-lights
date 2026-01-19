@@ -1,48 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>City Lights — Locations</title>
-
-<link href="https://fonts.cdnfonts.com/css/rusdy-ibra" rel="stylesheet">
-<link href="https://fonts.cdnfonts.com/css/br-cobane" rel="stylesheet">
-
 <style>
-:root {
-  --bg: #F5F1EE;
-  --panel: #ede6e1;
-  --border: #D8CAC0;
-  --text: #a88f87;
-  --header: #634f58;
-  --link: #B6A46A;
+  :root {
+  --bg: #0e141b;
+  --panel: #151c25;
+  --border: #2a3340;
+  --text: #788498;
+  --muted: #47586e;
+  --header: #8f7987;
+  --accent: #2a3340;
+  --link: #b6a46a;
+
+  --main-f: 'BR Cobane', sans-serif;
+  --header-f: 'Rusdy Ibra', sans-serif;
 }
 
 body {
   background: var(--bg);
+  font-family: var(--main-f);
   color: var(--text);
-  font-family: 'BR Cobane', sans-serif;
-  margin: 0;
-  padding: 0;
+  font-size: 13px;
 }
 
-a {
-  text-decoration: none;
-  color: var(--link);
-}
-a:hover {
-  color: var(--accent);
+::-webkit-scrollbar {
+  width: 0px;
 }
 
-.profile-header {
-  grid-column: 1 / -1;
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 5px;
-  padding: 2rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-  margin-bottom: -20px;
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+  background: transparent;
 }
+
+/*------------------------------
+LAYOUT ELEMENTS
+------------------------------*/
+.abs {
+  position: absolute;
+}
+
+#profile {
+  width: 900px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 2rem;
+}
+
+/* ===== Header ===== */
 
 .header-inner {
   display: flex;
@@ -56,7 +59,7 @@ a:hover {
   flex-shrink: 0;
   border-radius: 6px;
   overflow: hidden;
-  background: var(--border);
+  background: var(--accent);
   padding: 5px;
 }
 
@@ -68,13 +71,23 @@ a:hover {
   filter: grayscale(20%) brightness(0.85);
 }
 
+.profile-header {
+  grid-column: 1 / -1;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  margin-bottom: -100px;
+}
+
 .profile-header h2 {
   font-family: var(--header-f);
-  font-weight: normal;
   font-size: 105px;
   line-height: 0.95;
   margin: 0;
   color: var(--header);
+  font-weight: normal;
 }
 
 .profile-header .tag {
@@ -84,7 +97,6 @@ a:hover {
   font-style: italic;
 }
 
-
 /* Page layout */
 .container {
   max-width: 1000px;
@@ -93,18 +105,22 @@ a:hover {
 }
 
 /* Section titles */
+
 h2 {
-  font-family: 'Rusdy Ibra', sans-serif;
-  font-size: 36px;
+  font-family: var(--header-f);
+  font-size: 70px;
   color: var(--header);
   margin-bottom: 1rem;
+  font-weight: normal;
 }
 
 h3 {
-  font-size: 24px;
+  font-size: 40px;
+  font-family: var(--header-f);
   color: var(--header);
   margin-top: 2rem;
   margin-bottom: 1rem;
+  font-weight: normal;
 }
 
 /* Grid cards */
@@ -121,12 +137,14 @@ h3 {
   border-radius: 6px;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .location-card:hover {
   transform: scale(1.02);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .location-card img {
@@ -160,7 +178,7 @@ h3 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(21,28,37,0.9);
+  background: rgba(21, 28, 37, 0.9);
   color: var(--text);
   display: flex;
   flex-direction: column;
@@ -181,26 +199,33 @@ h3 {
   margin-top: 2rem;
   display: inline-block;
   font-size: 14px;
-  color: var(--accent);
-}
-.back-link:hover {
   color: var(--link);
 }
-</style>
-</head>
-<body>
+.back-link:hover {
+  color: var(--accent);
+}
 
+</style>
+
+<body>
+  <link href="https://fonts.cdnfonts.com/css/rusdy-ibra" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/br-cobane" rel="stylesheet">     
+
+<div id="profile">
 <header class="profile-header">
   <div class="header-inner">
     <div class="header-image">
-      <img src="https://64.media.tumblr.com/0e4d2ea7daa45f817e9ea900affd0205/tumblr_oo0cqeYOWS1thynt0o1_1280.jpg" alt="City header image">
+      <img src="https://i.pinimg.com/736x/7b/c8/3e/7bc83ebcb627397c02f2e958c3e2f471.jpg" alt="City header image">
     </div>
+
     <div class="header-text">
       <h2>City Lights</h2>
       <div class="tag">Paralyzed by my envy of the night</div>
     </div>
   </div>
 </header>
+
+</div>
 
 <div class="container">
 
@@ -267,4 +292,3 @@ h3 {
 </div>
 
 </body>
-</html>
