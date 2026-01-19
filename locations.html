@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>City Lights — Locations</title>
+
+<link href="https://fonts.cdnfonts.com/css/rusdy-ibra" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/br-cobane" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0E141B;
+  --panel: #151C25;
+  --border: #2A3340;
+  --text: #D8DEE6;
+  --muted: #9AA4B2;
+  --accent: #8C7A4A;
+  --link: #B6A46A;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'BR Cobane', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--link);
+}
+a:hover {
+  color: var(--accent);
+}
+
+/* Header */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+}
+
+.profile-header img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+  filter: grayscale(20%) brightness(0.85);
+}
+
+.profile-header h1 {
+  font-family: 'Rusdy Ibra', sans-serif;
+  font-size: 80px;
+  margin: 0;
+  color: var(--link);
+}
+
+.profile-header .tag {
+  font-size: 14px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  font-style: italic;
+}
+
+/* Page layout */
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem;
+}
+
+/* Section titles */
+h2 {
+  font-family: 'Rusdy Ibra', sans-serif;
+  font-size: 36px;
+  color: var(--link);
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 24px;
+  color: var(--accent);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Grid cards */
+.location-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.location-card {
+  position: relative;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.location-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.location-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.location-card .info {
+  padding: 10px;
+}
+
+.location-card h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 18px;
+  color: var(--link);
+}
+
+.location-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Hover overlay (optional) */
+.location-card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(21,28,37,0.9);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.location-card:hover .overlay {
+  opacity: 1;
+}
+
+/* Back link */
+.back-link {
+  margin-top: 2rem;
+  display: inline-block;
+  font-size: 14px;
+  color: var(--accent);
+}
+.back-link:hover {
+  color: var(--link);
+}
+</style>
+</head>
+<body>
+
+<header class="profile-header">
+  <img src="https://i.pinimg.com/736x/7b/c8/3e/7bc83ebcb627397c02f2e958c3e2f471.jpg" alt="City image">
+  <div>
+    <h1>City Lights</h1>
+    <div class="tag">Paralyzed by my envy of the night</div>
+  </div>
+</header>
+
+<div class="container">
+
+  <h2>Locations</h2>
+
+  <h3>Businesses</h3>
+  <div class="location-grid">
+    <div class="location-card">
+      <img src="https://64.media.tumblr.com/9432dff9f5ca4ce22da69a9a5087ce3a/039c9e5a2b2d67a2-c4/s500x750/4fd30f92b9a86be006b1c40b1b130a1ddfccdb91.jpg" alt="Bubble & Brew Co.">
+      <div class="info">
+        <h4>Bubble & Brew Co.</h4>
+        <p>Combination boba/coffee shop in downtown Montrose.</p>
+      </div>
+    </div>
+
+    <div class="location-card">
+      <img src="https://i.pinimg.com/1200x/7f/03/d5/7f03d5e16acf688e30358b06239e3493.jpg" alt="Silver Spoon Diner">
+      <div class="info">
+        <h4>Silver Spoon Diner</h4>
+        <p>Old-school 24-hour American diner.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>Community Spots</h3>
+  <div class="location-grid">
+    <div class="location-card">
+      <img src="https://i.pinimg.com/736x/04/5d/4e/045d4e184ca528935d996921bb6200c8.jpg" alt="Meadowlark Park">
+      <div class="info">
+        <h4>Meadowlark Park</h4>
+        <p>A park with walking paths, playground, and skate park.</p>
+      </div>
+    </div>
+
+    <div class="location-card">
+      <img src="https://64.media.tumblr.com/d0210d6851ac2059d90042615f2ca132/0b3a470432156f71-8d/s540x810/c13c475d2fef6570510b449d6912a568b447a5b4.pnj" alt="Montrose Memorial">
+      <div class="info">
+        <h4>Montrose Memorial</h4>
+        <p>One of the leading hospitals in the nation.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>Residentials</h3>
+  <div class="location-grid">
+    <div class="location-card">
+      <img src="https://i.pinimg.com/1200x/8c/65/bd/8c65bdfe69b0cb469df8fcecd116dbb3.jpg" alt="Northstar Apartments">
+      <div class="info">
+        <h4>Northstar Apartments</h4>
+        <p>Five floors with four apartments per floor.</p>
+      </div>
+    </div>
+
+    <div class="location-card">
+      <img src="https://i.pinimg.com/736x/8b/44/f9/8b44f90ea18afb3c9a01b4797d8caf6e.jpg" alt="Glenndale Street">
+      <div class="info">
+        <h4>Glenndale Street</h4>
+        <p>Older neighborhood with a mix of rentals and homeowners.</p>
+      </div>
+    </div>
+  </div>
+
+  <a href="index.html" class="back-link">&larr; Back to Main Page</a>
+</div>
+
+</body>
+</html>
