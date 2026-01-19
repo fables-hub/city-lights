@@ -1,22 +1,23 @@
 <style>
-	:root {
-  --bg: #ffffff;
-  --panel: #fafafa;
-  --border: #eeeeee;
-  --text: #e6e2dd;
-  --muted: #b2aead;
-  --accent: #aaaaaa; /* sapphire-purple */
-  --danger: #6b2f3a; /* muted crimson */
+:root {
+  --bg: #0E141B;
+  --panel: #151C25;
+  --border: #2A3340;
+  --text: #788498;
+  --muted: #47586e;
+  --header: #54708d;
+  --accent: #2A3340;
+  --link: #B6A46A; /* sapphire-purple */
 
-  --main-f: 'Plush-Trial', sans-serif;
-  --header-f: 'Lavire Personal Use', sans-serif;
+  --main-f: 'BR Cobane', sans-serif;
+  --header-f: 'Rusdy Ibra', sans-serif;
 }
 
 body {
   background: var(--bg);
   font-family: var(--main-f);
   color: var(--text);
-  font-size: 14px;
+  font-size: 13px;
 }
 
 ::-webkit-scrollbar {
@@ -50,7 +51,7 @@ LAYOUT ELEMENTS
   grid-column: 1 / -1;
   background: var(--panel);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 5px;
   padding: 2rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
   margin-bottom: -20px;
@@ -58,13 +59,14 @@ LAYOUT ELEMENTS
 
 .profile-header h2 {
   font-family: var(--header-f);
-  font-weight: 200;
-  font-size: 80px;
+  font-weight: normal;
+  font-size: 100px;
   margin: 0;
+  color: var(--header);
 }
 
 .profile-header .tag {
-  color: var(--ink-soft);
+  color: var(--muted);
   letter-spacing: 2px;
   font-size: 90%;
   font-style: italic;
@@ -74,7 +76,7 @@ LAYOUT ELEMENTS
 
 section {
   margin-bottom: 15px;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 10px;
   border: 1px solid var(--border);
   background: var(--panel);
@@ -102,7 +104,7 @@ section:last-child {
   position: relative;
   width: 230px;
   height: 280px;
-  border-radius: 18px;
+  border-radius: 5px;
   overflow: hidden;
   background: var(--accent);
   padding: 6px;
@@ -112,7 +114,7 @@ section:last-child {
   width: 230px;
   height: 280px;
   object-fit: cover;
-  border-radius: 18px;
+  border-radius: 5px;
   display: block;
 }
 
@@ -133,13 +135,13 @@ section:last-child {
 }
 
 h2:target {
-  color: red;
+  color: var(--header);
 }
 
 .pspace {
   height: 1px;
   margin: 20px 0;
-  background: linear-gradient(to right, transparent, #bbb, transparent);
+  background: linear-gradient(to right, transparent, #8C7A4A, transparent);
 }
 
 
@@ -155,11 +157,11 @@ i {
 h2 {
   font-family: var(--header-f);
   font-weight: 200;
-  font-size: 190%;
+  font-size: 220%;
   margin-top: 0px;
   margin-bottom: 10px;
   letter-spacing: 1px;
-  color: var(--muted);
+  color: var(--header);
 }
 
 a {
@@ -184,16 +186,19 @@ li:last-child {
 
 <body>
 
+<link href="https://fonts.cdnfonts.com/css/rusdy-ibra" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/br-cobane" rel="stylesheet">     
+
 <div id="profile">
  <header class="profile-header">
- <h2>Title</h2>
- <div class="tag">Subtitle</div>
+ <h2>City Lights</h2>
+ <div class="tag">Paralyzed by my envy of the night</div>
  </header>
 
  <aside class="stats">
  <div class="portrait-frame">
  <img
- src="https://i.pinimg.com/1200x/64/2e/b0/642eb0692a1d657c055ab82449c2cbe4.jpg"
+ src="https://i.pinimg.com/736x/7b/c8/3e/7bc83ebcb627397c02f2e958c3e2f471.jpg"
  alt="Character portrait"
  />
  </div>
@@ -298,6 +303,5 @@ Boop.
 
  </div>
 </div>
-
 	
 </body>
