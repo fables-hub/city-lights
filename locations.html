@@ -10,12 +10,11 @@
 
 <style>
 :root {
-  --bg: #0E141B;
-  --panel: #151C25;
-  --border: #2A3340;
-  --text: #D8DEE6;
-  --muted: #9AA4B2;
-  --accent: #8C7A4A;
+  --bg: #F5F1EE;
+  --panel: #ede6e1;
+  --border: #D8CAC0;
+  --text: #a88f87;
+  --header: #634f58;
   --link: #B6A46A;
 }
 
@@ -35,37 +34,56 @@ a:hover {
   color: var(--accent);
 }
 
-/* Header */
 .profile-header {
+  grid-column: 1 / -1;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  margin-bottom: -20px;
+}
+
+.header-inner {
   display: flex;
   align-items: center;
   gap: 2rem;
-  padding: 2rem;
-  background: var(--panel);
-  border-bottom: 1px solid var(--border);
 }
 
-.profile-header img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
+.header-image {
+  width: 450px;
+  height: 175px;
+  flex-shrink: 0;
   border-radius: 6px;
+  overflow: hidden;
+  background: var(--border);
+  padding: 5px;
+}
+
+.header-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
   filter: grayscale(20%) brightness(0.85);
 }
 
-.profile-header h1 {
-  font-family: 'Rusdy Ibra', sans-serif;
-  font-size: 80px;
+.profile-header h2 {
+  font-family: var(--header-f);
+  font-weight: normal;
+  font-size: 105px;
+  line-height: 0.95;
   margin: 0;
-  color: var(--link);
+  color: var(--header);
 }
 
 .profile-header .tag {
-  font-size: 14px;
   color: var(--muted);
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  font-size: 90%;
   font-style: italic;
 }
+
 
 /* Page layout */
 .container {
@@ -78,13 +96,13 @@ a:hover {
 h2 {
   font-family: 'Rusdy Ibra', sans-serif;
   font-size: 36px;
-  color: var(--link);
+  color: var(--header);
   margin-bottom: 1rem;
 }
 
 h3 {
   font-size: 24px;
-  color: var(--accent);
+  color: var(--header);
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
@@ -125,12 +143,12 @@ h3 {
 .location-card h4 {
   margin: 0 0 0.5rem 0;
   font-size: 18px;
-  color: var(--link);
+  color: var(--header);
 }
 
 .location-card p {
   margin: 0;
-  color: var(--muted);
+  color: var(--text);
   font-size: 14px;
   line-height: 1.4;
 }
@@ -173,10 +191,14 @@ h3 {
 <body>
 
 <header class="profile-header">
-  <img src="https://i.pinimg.com/736x/7b/c8/3e/7bc83ebcb627397c02f2e958c3e2f471.jpg" alt="City image">
-  <div>
-    <h1>City Lights</h1>
-    <div class="tag">Paralyzed by my envy of the night</div>
+  <div class="header-inner">
+    <div class="header-image">
+      <img src="https://64.media.tumblr.com/0e4d2ea7daa45f817e9ea900affd0205/tumblr_oo0cqeYOWS1thynt0o1_1280.jpg" alt="City header image">
+    </div>
+    <div class="header-text">
+      <h2>City Lights</h2>
+      <div class="tag">Paralyzed by my envy of the night</div>
+    </div>
   </div>
 </header>
 
