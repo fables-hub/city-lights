@@ -104,6 +104,30 @@ LAYOUT ELEMENTS
   font-style: italic;
 }
 
+  /* ===== Map Section ===== */
+
+.map-wrapper {
+  grid-column: 1 / -1;
+  margin-top: 40px;
+}
+
+.map-panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+}
+
+.map-panel img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 4px;
+  filter: grayscale(30%) brightness(0.9);
+}
+
+
 /* Page layout */
 .container {
   max-width: 1000px;
@@ -231,6 +255,16 @@ h3 {
     </div>
   </div>
 </header>
+
+  <div class="map-wrapper">
+  <div class="map-panel">
+    <img
+      src="https://i.postimg.cc/7ZqwYpfy/Map.png"
+      alt="Map of Montrose"
+    >
+  </div>
+</div>
+
 
 </div>
 
